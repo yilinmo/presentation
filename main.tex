@@ -67,7 +67,7 @@
 \title[Secure CPS]{信息物理系统中的安全控制算法设计}
 \author[Yilin Mo]{Yilin Mo}
 \institute[Tsinghua]{Department of Automation, Tsinghua University}
-\date[June 21, 2021]{June 21, 2021}
+\date[Sept 22, 2022]{Sept 22, 2022}
 
 \usetheme[subsectionpage=none,block=fill]{metropolis}
 \definecolor{thupurple}{RGB}{102,8,116}
@@ -194,17 +194,16 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{What Control/System Theory Can Provide?}
-  \begin{itemize}
-    \item Robustness/Resiliency in off-line Design
-    \item Intrusion Detection \& Isolation
-    \item Secure Information Fusion/Control
-    \item Security Investment
-  \end{itemize}
-\end{frame}
+%\begin{frame}{What Control/System Theory Can Provide?}
+%  \begin{itemize}
+%    \item Robustness/Resiliency in off-line Design
+%    \item Intrusion Detection \& Isolation
+%    \item Secure Information Fusion/Control
+%    \item Security Investment
+%  \end{itemize}
+%\end{frame}
 
-\section{Secure State Estimation}
-\subsection{Static State Estimation}
+\section{Secure State Estimation: Static Case}
 
 \begin{frame}{Problem Formulation}
   \begin{enumerate}
@@ -730,7 +729,7 @@
   \end{figure}
 \end{frame}
 
-\subsection{Dynamic State Estimation}
+\section{Secure State Estimation: Dynamic Case}
 \begin{frame}{Dynamic State Estimation}
   \begin{enumerate}
     \item Consider the following dynamic system
@@ -947,7 +946,7 @@ In order to convert the dynamic estimation problem into a static one, we can use
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Efficiency and Security\footcite{Liu2017}}
+\begin{frame}{Efficiency and Security\footcite{Liu2021}}
   \begin{block}{Efficiency}
     \begin{itemize}
       \item In the absence of attack, we recover the Kalman estimate if the noise is "small".
@@ -1116,80 +1115,33 @@ Linear control feedback: $u_c(k)=-K_{\rm con}\hat{x}(k)$. $w(k)$, $v(k)$ are uni
 	
 \end{frame}
 
-
-
-
-\begin{frame}{Secure Control of Autonomous Vehicle}
-  \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.8\textwidth]{singpilot.jpg}
-  \end{figure}
-
-\end{frame}
-
-\begin{frame}{Localization of Autonomous Vehicles via Secure Sensor Fusion}
-  \begin{columns}
-    \begin{column}{0.48\textwidth}
-      \begin{figure}
-	\includegraphics[width=\textwidth]{gnssdrift.jpg}
-	\caption{EKF}
-      \end{figure}
-    \end{column}
-    \begin{column}{0.48\textwidth} 		
-      \begin{figure}
-	\includegraphics[width=\textwidth]{gnssdriftsafe.jpg}
-	\caption{Secure EKF}
-      \end{figure}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-
 \section{Conclusion}
-
-%\begin{frame}{Towards a Science of CPS Security}
-%  \begin{itemize}
-%    \item We consider both the static and dynamic state estimation problem in adversarial environment 
-%    \item For static estimation, we propose a convex optimization based estimator and derive necessary and sufficient condition for its stability
-%    \item For dynamic estimation, we propose a local filter + global fusion design:
-%      \begin{enumerate}
-%	\item In the absence of the attack, we recover the optimal Kalman filter with certain probabiliy
-%	\item In the presence of the attack, we provide a sufficient condition for stability
-%	\item For $A$ matrix whose unstable eigenvalues have geometric multiplicity of 1, the filter also achieves optimal security 
-%      \end{enumerate}
-%    \item Future directions: How to combine information security with system theory to provide defense in depth?
-%  \end{itemize}
-%\end{frame}
-%
-%\begin{frame}{Acknowledgement}
-%  \begin{itemize}
-%    \item Duo Han, Xinghua Liu, Zishuo Li
-%    \item Lihua Xie, Emanuele Garone 
-%    \item NTU Autonomous Driving Group: Danwei Wang, Jakub Tomasek, Qipeng Liu, Ehsan Mihankhah, Xiaoqiang Ren, Xiaoyu Mo 
-%  \end{itemize}
-%\end{frame}
-
 
 \begin{frame}{Towards a Science of CPS Security}
   \begin{itemize}
-  \item We consider intrusion detection problem in adversarial environment and propose an active detection scheme.
     \item We consider both the static and dynamic state estimation problem in adversarial environment 
     \item For static estimation, we propose a convex optimization based estimator and derive necessary and sufficient condition for its stability
-  \item How to systematically design secure algorithms?
-  \item How to combine information security with system theory to provide defense in depth?
+    \item For dynamic estimation, we propose a local filter + global fusion design:
+      \begin{enumerate}
+	\item In the absence of the attack, we recover the optimal Kalman filter with certain probability
+	\item In the presence of the attack, we provide a sufficient condition for stability
+	\item For $A$ matrix whose unstable eigenvalues have geometric multiplicity of 1, the filter also achieves optimal security 
+      \end{enumerate}
+		\item We can further design distributed secure estimation algorithms against malicious sensors.
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Acknowledgement}
   \begin{itemize}
-  \item Rohan Chabukswar, Sean Weerakkody, Hanxiao Liu, Jiaqi Yan, Zishuo Li
-  \item Bruno Sinopoli, Lihua Xie, Karl H. Johansson
+    \item Duo Han, Zishuo Li
+    \item Lihua Xie, Emanuele Garone, Xinghua Liu
   \end{itemize}
 \end{frame}
 
-%\begin{frame}[allowframebreaks]
-%     \printbibliography
-%\end{frame} 
+\begin{frame}[allowframebreaks]{References}
+  \nocite{Han2019, Liu2021, Li2022}
+      \printbibliography[heading=none]
+\end{frame}
 
 \begin{frame}[standout]
   感谢聆听！请各位老师批评指正
